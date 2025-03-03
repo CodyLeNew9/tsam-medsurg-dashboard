@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 const TSAMDashboard = () => {
   // State for tracking orientation progress
   const [currentTier, setCurrentTier] = useState(1);
-  const completedObjectives: Record<string, boolean> = {};
-  const setCompletedObjectives = useState({});
+  const [completedObjectives, setCompletedObjectives] = useState<Record<string, boolean>>({});
   const [precepteeName, setPrecepteeName] = useState('');
   const [preceptorName, setPreceptorName] = useState('');
   const [startDate, setStartDate] = useState('');

@@ -230,7 +230,7 @@ const TSAMDashboard = () => {
   };
 
   // Toggle objective completion
-  const toggleObjective = (tierNum, objIndex) => {
+  const toggleObjective = (tierNum: number, objIndex: number) => {
     const key = `tier${tierNum}-${objIndex}`;
     setCompletedObjectives({
       ...completedObjectives,

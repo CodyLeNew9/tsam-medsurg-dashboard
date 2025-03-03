@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
 
 const TSAMDashboard = () => {
+  
+  // Interface that represents the structure of an experience entry
+  interface ExperienceEntry {
+    id: number;
+    category: string;
+    skill: string;
+    date: string;
+    description: string;
+    preceptorInitials: string;
+  }
+  
   // State for tracking orientation progress
   const [currentTier, setCurrentTier] = useState(1);
   const [completedObjectives, setCompletedObjectives] = useState<Record<string, boolean>>({});
   const [precepteeName, setPrecepteeName] = useState('');
   const [preceptorName, setPreceptorName] = useState('');
   const [startDate, setStartDate] = useState('');
-  const [experienceLog, setExperienceLog] = useState([]);
-  const [newExperience, setNewExperience] = useState({
+  const [experienceLog, setExperienceLog] = useState<ExperienceEntry[]>([]);
+  const [newExperience, setNewExperience] = useState<ExperienceEntry>({
+    id: 0,
     category: '',
     skill: '',
     date: '',
     description: '',
     preceptorInitials: ''
   });
-
+  
   // TSAM tiers data
   const tiersData = [
     {
@@ -247,14 +259,24 @@ const TSAMDashboard = () => {
 
   // Add a new experience to the log
   const addExperience = () => {
-    if (newExperience.category && newExperience.skill && newExperience.date && newExperience.description && newExperience.preceptorInitials) {
-      setExperienceLog([...experienceLog, {...newExperience, id: Date.now()}]);
+    if (
+      newExperience.category &&
+      newExperience.skill &&
+      newExperience.date &&
+      newExperience.description &&
+      newExperience.preceptorInitials
+    ) {
+      setExperienceLog([
+        ...experienceLog,
+        { ...newExperience, id: Date.now() }
+      ]);
       setNewExperience({
         category: '',
         skill: '',
         date: '',
         description: '',
-        preceptorInitials: ''
+        preceptorInitials: '',
+        id: 0
       });
     }
   };

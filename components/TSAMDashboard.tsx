@@ -203,7 +203,7 @@ const TSAMDashboard = () => {
   ];
 
   // Calculate overall progress
-  const calculateTierProgress = (tier) => {
+  const calculateTierProgress = (tier: number) => {
     const tierObjectives = tiersData[tier - 1].objectives;
     const completedCount = tierObjectives.filter(obj => 
       completedObjectives[`tier${tier}-${tierObjectives.indexOf(obj)}`]

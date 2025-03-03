@@ -238,7 +238,7 @@ const TSAMDashboard = () => {
   };
 
   // Check if all objectives in a tier are completed
-  const isTierCompleted = (tierNum) => {
+  const isTierCompleted = (tierNum: number) => {
     const tierObjectives = tiersData[tierNum - 1].objectives;
     return tierObjectives.every((obj, idx) => 
       completedObjectives[`tier${tierNum}-${idx}`]

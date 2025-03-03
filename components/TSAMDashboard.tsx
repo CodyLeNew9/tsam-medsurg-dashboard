@@ -282,7 +282,7 @@ const TSAMDashboard = () => {
   };
 
   // Sign off on a tier
-  const signOffTier = (tierNum) => {
+  const signOffTier = (tierNum: number) => {
     if (isTierCompleted(tierNum)) {
       if (tierNum < 6) {
         setCurrentTier(tierNum + 1);
